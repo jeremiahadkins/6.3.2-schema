@@ -1,0 +1,63 @@
+<div class="container py-5" style="max-width: 650px;">
+  <div class="row">
+    <div class="col-md-12">
+      <h5>Create a Hat</h5>
+      <hr>
+      <form action="/hat" method="post">
+        {{!-- <div class="form-inline"> --}}
+          <div class="form-group">
+            <input class="form-control" type="text" name="name" placeholder="Hat Name">
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="number" name="size" placeholder="Hat Size">
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="text" name="materialPrimary" placeholder="Primary Material">
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="text" name="materialSecondary" placeholder="Secondary Material">
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="checkbox" name="style" value="Fitted" class="form-check-input"> Fitted
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="checkbox" name="style" value="Snapback" class="form-check-input"> Snapback
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="checkbox" name="style" value="Sailor" class="form-check-input"> Sailor
+            </label>
+          </div>
+          <button class="btn btn-primary btn-sm btn-block" type="submit" name="">Create Hat</button>
+        {{!-- </div> --}}
+      </form>
+    </div>
+  </div>
+</div>
+<div class="container-fluid bg-inverse p-5 h-100">
+  <div class="row">
+    {{#each hats}}
+      <div class="col-4">
+        <div class="card">
+          <div class="card-block">
+            <h6>{{name}}</h6>
+            <hr>
+            <dl style="font-size: 70%;">
+              <dt>Size:</dt><dd>{{size}}</dd>  
+              <dt>Primary Materials:</dt><dd>{{materials.primary}}</dd>
+              <dt>Secondary Materials:</dt><dd>{{materials.secondary}}</dd>
+              <dt>Styles:</dt><dd>{{styles}}</dd>  
+              <a class="btn btn-danger btn-sm" href="/hat/{{_id}}/delete">Delete</a>
+              <a class="btn btn-info btn-sm" href="/hat/{{_id}}/update">Update</a>
+            </dl>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
+
